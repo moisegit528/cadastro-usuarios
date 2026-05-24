@@ -24,4 +24,22 @@ public class ControleUsuario {
     public List<Usuario> listar() {
         return usuarioRepositorio.findAll();
     }
+
+    @PutMapping("/{id}")
+    public Usuario atualizar(@PathVariable Long id, @RequestBody Usuario usuarioAtualizado) {
+       Usuario usuario = usuarioRepositorio.findById(id).orElseThrow();
+       usuario.setNome(usuarioAtualizado.getNome());
+       usuario.setEmail(usuarioAtualizado.getEmail());
+       usuario.setSenha(usuarioAtualizado.getSenha());
+       usuario.setNascimento(usuarioAtualizado.getNascimento());
+       usuario.setTelefone(usuarioAtualizado.getTelefone());
+       return usuarioRepositorio.save(usuario);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deletar(@PathVariable Long id) {
+        usuarioRepositorio.deleteById(id);
+    }
 }
+
+
