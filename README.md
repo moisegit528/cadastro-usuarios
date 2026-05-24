@@ -1,2 +1,2 @@
 # cadastro-usuarios
-Projeto Simples API/MySQL
+Projeto Simples para cadastro de usuários, utilização de API (Postman) e conexão com banco de dados (MySQL).
